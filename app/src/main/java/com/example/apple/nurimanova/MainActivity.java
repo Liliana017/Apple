@@ -1,12 +1,17 @@
-package com.example.apple;
+package com.example.apple.nurimanova;
 
 import android.os.Bundle;
+import com.example.apple.User;
+import com.example.apple.Note;
+import com.example.apple.DatabaseHelper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.apple.R;
 
 public class MainActivity extends AppCompatActivity {
 
