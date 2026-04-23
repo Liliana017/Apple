@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.apple.nurimanova.MainActivity;
 import com.example.apple.utils.DatabaseHelper;
 import com.example.apple.utils.SessionManager;
 
@@ -18,7 +17,6 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
-    private Button btnLogin;
     private TextView tvRegister;
     private DatabaseHelper dbHelper;
     private SessionManager sessionManager;
@@ -40,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
-        btnLogin = findViewById(R.id.btn_login);
+        Button btnLogin = findViewById(R.id.btn_login);
         tvRegister = findViewById(R.id.tv_register);
 
         btnLogin.setOnClickListener(v -> login());
@@ -72,7 +70,8 @@ public class LoginActivity extends AppCompatActivity {
 
         int userId = dbHelper.loginUser(email, password);
         if (userId != -1) {
-            sessionManager.createSession(userId);
+            sessionManager.createSession(userId,
+                    email);
             Toast.makeText(this, "Добро пожаловать!", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MainActivity.class));
             finish();
